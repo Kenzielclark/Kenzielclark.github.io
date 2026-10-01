@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="theme-color" content="#f8f5ed">
+	<meta name="description" content="Meet the makers of Anna Maria Island at Sea & Sol, a little coastal shop for handmade clothing, jewelry, home decor, and thoughtful gifts. Shipping available nationwide.">
+	<title>Sea &amp; Sol | Handmade on Anna Maria Island</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+	<style>
+		:root {
+			--ink: #193b3d;
+			--muted: #657575;
+			--paper: #f8f5ed;
+			--white: #fffefa;
+			--sea: #dce9df;
+			--coral: #d47762;
+			--line: #e8e3d9;
+			--serif: 'Playfair Display', Georgia, serif;
+			--sans: 'DM Sans', sans-serif;
+		}
+
+		* { box-sizing: border-box; }
+		html { scroll-behavior: smooth; }
+		body { margin: 0; color: var(--ink); background: var(--paper); font-family: var(--sans); }
+		a { color: inherit; text-decoration: none; }
+		button, input { font: inherit; }
+		button { color: inherit; }
+		.announcement { padding: 9px 20px; background: var(--ink); color: white; text-align: center; font-size: 11px; letter-spacing: .08em; }
+		.announcement strong { color: #f2c4a9; font-weight: 600; }
+		.site-header { position: relative; z-index: 5; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; height: 78px; padding: 0 6.3%; background: var(--paper); }
+		.nav-links { display: flex; gap: 27px; align-items: center; font-size: 12px; color: #4c6260; }
+		.nav-links a, .header-actions a { transition: color .2s ease; }
+		.nav-links a:hover, .header-actions a:hover { color: var(--coral); }
+		.brand { text-align: center; line-height: 1; }
+		.brand-name { font-family: var(--serif); font-size: 26px; letter-spacing: .015em; }
+		.brand-caption { display: block; margin-top: 6px; font-size: 8px; letter-spacing: .22em; text-transform: uppercase; color: var(--muted); }
+		.header-actions { display: flex; justify-content: flex-end; align-items: center; gap: 22px; font-size: 12px; }
+		.tote-button { border: 0; padding: 0; background: transparent; cursor: pointer; }
+		.menu-toggle { display: none; border: 0; padding: 7px; background: transparent; font-size: 20px; cursor: pointer; }
+
+		.hero { position: relative; min-height: 590px; height: min(70vw, 710px); max-height: 710px; overflow: hidden; color: white; background: #829c91; }
+		.hero::before { position: absolute; inset: 0; content: ''; background: linear-gradient(90deg, rgba(19, 48, 48, .56), rgba(19, 48, 48, .12) 67%, rgba(19, 48, 48, .03)), linear-gradient(0deg, rgba(18, 43, 42, .22), transparent 36%); }
+		.hero-image { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 55%; animation: arrive 1.1s ease both; }
+		.hero-content { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: flex-start; justify-content: center; height: 100%; max-width: 650px; padding: 42px 0 48px 11%; animation: rise .8s .12s both; }
+		.eyebrow { margin: 0 0 17px; font-size: 10px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; }
+		h1, h2, h3, p { margin-top: 0; }
+		.hero h1 { max-width: 610px; margin-bottom: 17px; font-family: var(--serif); font-size: clamp(48px, 6.6vw, 82px); font-weight: 500; line-height: 1.04; }
+		.hero-copy { max-width: 390px; margin-bottom: 27px; font-size: 15px; line-height: 1.8; color: rgba(255,255,255,.9); }
+		.button { display: inline-flex; min-height: 47px; align-items: center; justify-content: center; padding: 0 24px; border: 1px solid transparent; background: var(--coral); color: white; font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; transition: background .2s, transform .2s; }
+		.button:hover { transform: translateY(-2px); background: #bd6653; }
+		.button-light { border-color: rgba(255,255,255,.8); background: transparent; }
+		.button-light:hover { background: white; color: var(--ink); }
+		.hero-note { position: absolute; right: 6.3%; bottom: 26px; z-index: 1; font-size: 10px; letter-spacing: .08em; color: rgba(255,255,255,.9); }
+
+		.intro { display: grid; grid-template-columns: 1fr 1.35fr 1fr; align-items: center; gap: 26px; max-width: 1170px; margin: auto; padding: 55px 36px 53px; text-align: center; }
+		.intro-rule { height: 1px; background: #d8d8cc; }
+		.intro p { max-width: 500px; margin: 0 auto; font-family: var(--serif); font-size: 21px; line-height: 1.55; }
+		.intro em { color: #b66d5b; }
+		.section { padding: 68px 6.3% 78px; }
+		.section-heading { display: flex; justify-content: space-between; align-items: end; gap: 20px; max-width: 1320px; margin: 0 auto 27px; }
+		.section-heading .eyebrow { margin-bottom: 9px; color: var(--coral); }
+		.section-heading h2, .story-copy h2, .newsletter h2 { margin-bottom: 0; font-family: var(--serif); font-size: clamp(31px, 3.4vw, 43px); font-weight: 500; line-height: 1.16; }
+		.text-link { padding-bottom: 5px; border-bottom: 1px solid var(--coral); font-size: 11px; font-weight: 600; letter-spacing: .05em; }
+		.filters { display: flex; gap: 8px; max-width: 1320px; margin: 0 auto 25px; }
+		.filter { padding: 9px 15px; border: 1px solid #d8d8cc; border-radius: 2px; background: transparent; color: #526765; font-size: 11px; cursor: pointer; transition: all .2s; }
+		.filter:hover, .filter.active { border-color: var(--ink); background: var(--ink); color: white; }
+		.product-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 19px; max-width: 1320px; margin: auto; }
+		.product-card { min-width: 0; animation: rise .45s both; }
+		.product-image-wrap { position: relative; overflow: hidden; aspect-ratio: .86; background: var(--sea); }
+		.product-image { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .55s cubic-bezier(.2,.7,.3,1); }
+		.product-card:hover .product-image { transform: scale(1.045); }
+		.product-tag { position: absolute; top: 12px; left: 12px; padding: 6px 9px; background: var(--white); font-size: 9px; letter-spacing: .06em; text-transform: uppercase; }
+		.add-button { position: absolute; right: 10px; bottom: 10px; left: 10px; min-height: 39px; border: 0; background: var(--white); font-size: 10px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; cursor: pointer; opacity: 0; transform: translateY(6px); transition: .2s ease; }
+		.product-card:hover .add-button, .add-button:focus-visible { opacity: 1; transform: translateY(0); }
+		.product-info { display: flex; justify-content: space-between; gap: 10px; padding-top: 13px; font-size: 12px; }
+		.product-name { margin-bottom: 5px; font-weight: 600; }
+		.product-maker { color: var(--muted); font-size: 10px; }
+		.product-price { flex: 0 0 auto; color: #526765; }
+		.shop-status { min-height: 19px; margin: 13px auto 0; color: var(--ink); text-align: center; font-size: 12px; }
+
+		.story { display: grid; grid-template-columns: 1.05fr .95fr; min-height: 490px; background: var(--sea); }
+		.story-image { width: 100%; height: 100%; min-height: 490px; object-fit: cover; }
+		.story-copy { display: flex; flex-direction: column; align-items: flex-start; justify-content: center; padding: 60px clamp(36px, 8vw, 115px); }
+		.story-copy .eyebrow { margin-bottom: 13px; color: #b56856; }
+		.story-copy h2 { max-width: 440px; margin-bottom: 18px; }
+		.story-copy p:not(.eyebrow) { max-width: 430px; margin-bottom: 24px; color: #4e6661; font-size: 13px; line-height: 1.9; }
+		.story-copy .button { background: var(--ink); }
+		.story-copy .button:hover { background: #285354; }
+
+		.shipping { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; background: var(--line); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+		.shipping-item { padding: 30px 18px 28px; background: var(--paper); text-align: center; }
+		.shipping-icon { display: block; margin-bottom: 12px; color: var(--coral); font-family: var(--serif); font-size: 26px; }
+		.shipping-item h3 { margin-bottom: 7px; font-size: 11px; letter-spacing: .09em; text-transform: uppercase; }
+		.shipping-item p { margin: 0; color: var(--muted); font-size: 11px; }
+
+		.newsletter { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 36px; padding: 63px 10%; background: #e8d9c8; }
+		.newsletter .eyebrow { margin-bottom: 9px; color: #a45e4d; }
+		.newsletter h2 { max-width: 480px; font-size: 34px; }
+		.newsletter-copy { margin: 0; color: #5d6258; font-size: 12px; line-height: 1.7; }
+		.newsletter-form { display: flex; margin-top: 15px; border-bottom: 1px solid #8c8c7d; }
+		.newsletter-form input { width: 100%; min-width: 0; padding: 12px 2px; border: 0; outline: none; background: transparent; color: var(--ink); font-size: 12px; }
+		.newsletter-form input::placeholder { color: #74796e; }
+		.newsletter-form button { border: 0; background: transparent; font-size: 10px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; cursor: pointer; }
+		.newsletter-status { min-height: 16px; margin: 8px 0 0; color: var(--ink); font-size: 11px; }
+
+		footer { padding: 35px 6.3% 25px; background: var(--ink); color: white; }
+		.footer-main { display: flex; justify-content: space-between; align-items: center; gap: 30px; padding-bottom: 27px; }
+		.footer-brand { font-family: var(--serif); font-size: 25px; }
+		.footer-sub { display: block; margin-top: 6px; color: #c3d2cb; font-family: var(--sans); font-size: 9px; letter-spacing: .14em; text-transform: uppercase; }
+		.footer-links { display: flex; gap: 23px; font-size: 11px; color: #e0e7e1; }
+		.footer-bottom { display: flex; justify-content: space-between; gap: 20px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,.18); color: #c3d2cb; font-size: 9px; }
+		.toast { position: fixed; right: 22px; bottom: 22px; z-index: 10; padding: 13px 18px; background: var(--ink); color: white; font-size: 12px; opacity: 0; pointer-events: none; transform: translateY(8px); transition: .2s ease; }
+		.toast.show { opacity: 1; transform: translateY(0); }
+		@keyframes rise { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+		@keyframes arrive { from { transform: scale(1.035); } to { transform: scale(1); } }
+
+		@media (max-width: 780px) {
+			.site-header { height: 68px; padding: 0 20px; grid-template-columns: 1fr auto 1fr; }
+			.menu-toggle { display: block; justify-self: start; }
+			.brand-name { font-size: 23px; }
+			.header-actions { gap: 0; font-size: 11px; }
+			.nav-links { position: absolute; top: 68px; right: 0; left: 0; display: none; flex-direction: column; align-items: stretch; gap: 0; padding: 8px 20px 16px; background: var(--paper); box-shadow: 0 10px 14px #193b3d12; }
+			.nav-links.open { display: flex; }
+			.nav-links a { padding: 13px 0; border-top: 1px solid var(--line); }
+			.hero { min-height: 570px; height: 74vh; max-height: 700px; }
+			.hero-content { padding: 35px 8%; }
+			.hero h1 { font-size: clamp(49px, 12vw, 72px); }
+			.hero-copy { max-width: 330px; font-size: 14px; }
+			.hero-note { right: 8%; font-size: 9px; }
+			.intro { grid-template-columns: 1fr; gap: 16px; padding: 38px 26px; }
+			.intro-rule { width: 42px; margin: auto; }
+			.intro p { font-size: 19px; }
+			.section { padding: 52px 20px 58px; }
+			.product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 13px; }
+			.add-button { opacity: 1; transform: none; }
+			.section-heading { align-items: end; }
+			.section-heading h2 { font-size: 34px; }
+			.filters { overflow-x: auto; padding-bottom: 4px; }
+			.filter { flex: 0 0 auto; }
+			.story { grid-template-columns: 1fr; }
+			.story-image { min-height: 330px; max-height: 420px; }
+			.story-copy { padding: 42px 26px 48px; }
+			.shipping-item { padding: 25px 10px; }
+			.shipping-item p { line-height: 1.5; }
+			.newsletter { grid-template-columns: 1fr; gap: 18px; padding: 45px 25px; }
+			.newsletter h2 { font-size: 31px; }
+			.footer-main { align-items: flex-start; flex-direction: column; }
+			.footer-links { flex-wrap: wrap; gap: 16px; }
+			.footer-bottom { flex-direction: column; gap: 8px; }
+		}
+		@media (prefers-reduced-motion: reduce) {
+			*, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+		}
+	</style>
+</head>
+<body>
+	<div class="announcement">A little island magic, delivered. <strong>Free U.S. shipping on orders over $75.</strong></div>
+	<header class="site-header">
+		<button class="menu-toggle" aria-label="Open navigation" aria-expanded="false">☰</button>
+		<nav class="nav-links" aria-label="Main navigation">
+			<a href="#shop">Shop all</a>
+			<a href="#shop" data-filter-link="Clothing">Clothing</a>
+			<a href="#shop" data-filter-link="Jewelry">Jewelry</a>
+			<a href="#story">Our island</a>
+		</nav>
+		<a class="brand" href="#top" aria-label="Sea and Sol home"><span class="brand-name">sea &amp; sol</span><span class="brand-caption">Anna Maria Island, Florida</span></a>
+		<div class="header-actions"><button class="tote-button" aria-label="Shopping tote, 0 items">Tote (<span id="cart-count">0</span>)</button></div>
+	</header>
+
+	<main id="top">
+		<section class="hero" aria-label="Welcome to Sea and Sol">
+			<img class="hero-image" src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&amp;fit=crop&amp;w=2200&amp;q=85" alt="Sunlight across the turquoise Gulf of Mexico" fetchpriority="high">
+			<div class="hero-content">
+				<p class="eyebrow">Made by the sea, found on the island</p>
+				<h1>Good things,<br>made by hand.</h1>
+				<p class="hero-copy">A little shop with a lot of heart. Meet the artists, makers, and island finds we can't wait to share with you.</p>
+				<a class="button button-light" href="#shop">Shop the collection <span aria-hidden="true">&nbsp;→</span></a>
+			</div>
+			<span class="hero-note">27°31' N &nbsp; 82°44' W &nbsp; / &nbsp; ANNA MARIA ISLAND</span>
+		</section>
+
+		<section class="intro" aria-label="Our point of view">
+			<span class="intro-rule"></span>
+			<p>Salt in the air, sand on your feet, and something <em>one of a kind</em> to take home.</p>
+			<span class="intro-rule"></span>
+		</section>
+
+		<section class="section" id="shop">
+			<div class="section-heading">
+				<div><p class="eyebrow">A few island favorites</p><h2>Made here. Loved everywhere.</h2></div>
+				<a class="text-link" href="#newsletter">A note from the island &nbsp;→</a>
+			</div>
+			<div class="filters" role="group" aria-label="Filter products">
+				<button class="filter active" data-filter="All" aria-pressed="true">All finds</button>
+				<button class="filter" data-filter="Clothing" aria-pressed="false">Clothing</button>
+				<button class="filter" data-filter="Jewelry" aria-pressed="false">Jewelry</button>
+				<button class="filter" data-filter="Home decor" aria-pressed="false">Home decor</button>
+				<button class="filter" data-filter="Gifts" aria-pressed="false">Little gifts</button>
+			</div>
+			<div class="product-grid" id="product-grid">
+				<article class="product-card" data-category="Clothing">
+					<div class="product-image-wrap"><img class="product-image" src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="Relaxed, sun-ready clothing" loading="lazy"><span class="product-tag">Island-made</span><button class="add-button" data-name="The Sunday Shirt">Add to tote</button></div>
+					<div class="product-info"><div><p class="product-name">The Sunday Shirt</p><p class="product-maker">Made by Maren Studio</p></div><span class="product-price">$68</span></div>
+				</article>
+				<article class="product-card" data-category="Jewelry">
+					<div class="product-image-wrap"><img class="product-image" src="https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="Hand-finished gold and pearl jewelry" loading="lazy"><span class="product-tag">Small batch</span><button class="add-button" data-name="Tidepool Hoops">Add to tote</button></div>
+					<div class="product-info"><div><p class="product-name">Tidepool Hoops</p><p class="product-maker">By Isla Gold Co.</p></div><span class="product-price">$42</span></div>
+				</article>
+				<article class="product-card" data-category="Home decor">
+					<div class="product-image-wrap"><img class="product-image" src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="Warm, natural textures at home" loading="lazy"><span class="product-tag">Artist-made</span><button class="add-button" data-name="Little Gulf Vase">Add to tote</button></div>
+					<div class="product-info"><div><p class="product-name">Little Gulf Vase</p><p class="product-maker">Thrown by Clay by Claire</p></div><span class="product-price">$54</span></div>
+				</article>
+				<article class="product-card" data-category="Gifts">
+					<div class="product-image-wrap"><img class="product-image" src="https://images.unsplash.com/photo-1607344645866-009c320b63e0?auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="Thoughtfully wrapped handmade gifts" loading="lazy"><span class="product-tag">A good little gift</span><button class="add-button" data-name="Island Daydream Candle">Add to tote</button></div>
+					<div class="product-info"><div><p class="product-name">Island Daydream Candle</p><p class="product-maker">Poured by Saltair Goods</p></div><span class="product-price">$29</span></div>
+				</article>
+			</div>
+			<p class="shop-status" id="shop-status" aria-live="polite"></p>
+		</section>
+
+		<section class="story" id="story">
+			<img class="story-image" src="https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?auto=format&amp;fit=crop&amp;w=1300&amp;q=85" alt="A breezy beach cottage nestled among palms" loading="lazy">
+			<div class="story-copy">
+				<p class="eyebrow">A shop with a story to tell</p>
+				<h2>Rooted in the island. Made by its people.</h2>
+				<p>We're a small, sun-drenched shop on Anna Maria Island, bringing together the makers who make this place feel like nowhere else. Every piece has a person, a process, and a little piece of the coast behind it.</p>
+				<a class="button" href="#newsletter">Get to know us <span aria-hidden="true">&nbsp;→</span></a>
+			</div>
+		</section>
+
+		<section class="shipping" aria-label="Shopping with Sea and Sol">
+			<div class="shipping-item"><span class="shipping-icon" aria-hidden="true">✳</span><h3>Made by real people</h3><p>Local makers, independent artists, always.</p></div>
+			<div class="shipping-item"><span class="shipping-icon" aria-hidden="true">↗</span><h3>From our shop to you</h3><p>We pack with care and ship across the U.S.</p></div>
+			<div class="shipping-item"><span class="shipping-icon" aria-hidden="true">♡</span><h3>A little more thoughtful</h3><p>Good finds, chosen to be kept and loved.</p></div>
+		</section>
+
+		<section class="newsletter" id="newsletter">
+			<div><p class="eyebrow">A postcard from Anna Maria</p><h2>Island days, in your inbox.</h2></div>
+			<div><p class="newsletter-copy">New maker stories, fresh finds, and a little salt air. Only the good stuff.</p>
+				<form class="newsletter-form" id="newsletter-form"><input type="email" name="email" placeholder="Your email address" aria-label="Your email address" required><button type="submit">Count me in &nbsp;→</button></form>
+				<p class="newsletter-status" id="newsletter-status" aria-live="polite"></p>
+			</div>
+		</section>
+	</main>
+
+	<footer>
+		<div class="footer-main"><a href="#top" class="footer-brand">sea &amp; sol<span class="footer-sub">Anna Maria Island, Florida</span></a><nav class="footer-links" aria-label="Footer navigation"><a href="#shop">Shop</a><a href="#story">Our island</a><a href="mailto:hello@seaandsol.shop">Say hello</a><a href="#newsletter">Instagram ↗</a></nav></div>
+		<div class="footer-bottom"><span>© 2026 Sea &amp; Sol. Made with island love.</span><span>Handmade on Anna Maria Island, FL</span></div>
+	</footer>
+	<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+	<script>
+		const filters = document.querySelectorAll('.filter');
+		const productCards = document.querySelectorAll('.product-card');
+		const shopStatus = document.getElementById('shop-status');
+
+		function setCategory(category) {
+			let visibleCount = 0;
+			productCards.forEach((card) => {
+				const visible = category === 'All' || card.dataset.category === category;
+				card.hidden = !visible;
+				if (visible) visibleCount += 1;
+			});
+			filters.forEach((button) => {
+				const active = button.dataset.filter === category;
+				button.classList.toggle('active', active);
+				button.setAttribute('aria-pressed', String(active));
+			});
+			shopStatus.textContent = visibleCount ? '' : 'More island finds are on their way.';
+		}
+
+		filters.forEach((button) => button.addEventListener('click', () => setCategory(button.dataset.filter)));
+		document.querySelectorAll('[data-filter-link]').forEach((link) => link.addEventListener('click', () => setCategory(link.dataset.filterLink)));
+
+		const menuToggle = document.querySelector('.menu-toggle');
+		const navLinks = document.querySelector('.nav-links');
+		menuToggle.addEventListener('click', () => {
+			const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
+			menuToggle.setAttribute('aria-expanded', String(!expanded));
+			menuToggle.setAttribute('aria-label', expanded ? 'Open navigation' : 'Close navigation');
+			menuToggle.textContent = expanded ? '☰' : '×';
+			navLinks.classList.toggle('open', !expanded);
+		});
+		navLinks.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => {
+			navLinks.classList.remove('open');
+			menuToggle.setAttribute('aria-expanded', 'false');
+			menuToggle.setAttribute('aria-label', 'Open navigation');
+			menuToggle.textContent = '☰';
+		}));
+
+		let cartCount = 0;
+		const toast = document.getElementById('toast');
+		let toastTimer;
+		document.querySelectorAll('.add-button').forEach((button) => button.addEventListener('click', () => {
+			cartCount += 1;
+			document.getElementById('cart-count').textContent = cartCount;
+			document.querySelector('.tote-button').setAttribute('aria-label', `Shopping tote, ${cartCount} ${cartCount === 1 ? 'item' : 'items'}`);
+			toast.textContent = `${button.dataset.name} added to your tote`;
+			toast.classList.add('show');
+			clearTimeout(toastTimer);
+			toastTimer = setTimeout(() => toast.classList.remove('show'), 2300);
+		}));
+
+		document.getElementById('newsletter-form').addEventListener('submit', (event) => {
+			event.preventDefault();
+			const email = new FormData(event.currentTarget).get('email');
+			document.getElementById('newsletter-status').textContent = `You're on the list. Watch ${email} for a little island sunshine.`;
+			event.currentTarget.reset();
+		});
+	</script>
+</body>
+</html>
